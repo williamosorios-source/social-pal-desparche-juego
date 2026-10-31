@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Control - El Misterio de la Partitura Navideña</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #0f172a; color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    .gold-text { color: #f59e0b; }
+    .card-dark { background-color: #1e293b; border: 1px solid #334155; }
+  </style>
+</head>
+<body class="p-4 md:p-8">
+
+  <header class="text-center mb-8">
+    <h1 class="text-3xl md:text-4xl font-extrabold gold-text mb-2">🎄 Panel de Control de Retos 🎷</h1>
+    <p class="text-slate-400">El Misterio de la Partitura Navideña • Social Pa'l Desparche</p>
+  </header>
+
+  <div id="retos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+    <!-- Se genera dinámicamente con JS -->
+  </div>
+
+  <script>
+    const retos = [
+      { id: 1, nombre: "Anfitrión / Bienvenida", tipo: "STAFF" },
+      { id: 2, nombre: "Cabina del DJ", tipo: "STAFF" },
+      { id: 3, nombre: "Luces Láser (Trivia)", tipo: "RESPUESTA" },
+      { id: 4, nombre: "Zona de Bebidas (Invertida)", tipo: "RESPUESTA" },
+      { id: 5, nombre: "PhotoSet (7 Letras)", tipo: "RESPUESTA" },
+      { id: 6, nombre: "Entrada / Redes Sociales", tipo: "RESPUESTA" },
+      { id: 7, nombre: "Zona de Descanso (Cifrado)", tipo: "RESPUESTA" },
+      { id: 8, nombre: "Las Dos Columnas (5 Dígitos)", tipo: "RESPUESTA" },
+      { id: 9, nombre: "Bajo la Base Plana", tipo: "RESPUESTA" },
+      { id: 10, nombre: "Pegado al Piso (6 Dígitos)", tipo: "RESPUESTA" }
+    ];
+
+    const grid = document.getElementById('retos-grid');
+    const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/'));
+
+    retos.forEach(r => {
+      const pageUrl = `${baseUrl}/reto${r.id}.html`;
+      const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(pageUrl)}`;
+
+      grid.innerHTML += `
+        <div class="card-dark rounded-xl p-5 shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-3">
+              <span class="bg-amber-500/20 text-amber-400 font-bold px-3 py-1 rounded-full text-sm">Reto #${r.id}</span>
+              <span class="text-xs text-slate-400 font-mono">${r.tipo}</span>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">${r.nombre}</h3>
+            <p class="text-xs text-slate-400 break-all mb-4 bg-slate-900 p-2 rounded">${pageUrl}</p>
+          </div>
+          
+          <div class="flex flex-col items-center gap-3 mt-2">
+            <img src="${qrUrl}" alt="QR Reto ${r.id}" class="w-32 h-32 rounded border-2 border-amber-500/30 p-1 bg-white">
+            <div class="flex gap-2 w-full mt-2">
+              <a href="reto${r.id}.html" target="_blank" class="flex-1 text-center bg-slate-700 hover:bg-slate-600 text-xs py-2 rounded text-white font-semibold transition">
+                <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> Abrir
+              </a>
+              <a href="${qrUrl}" download="QR_Reto_${r.id}.png" target="_blank" class="flex-1 text-center bg-amber-600 hover:bg-amber-500 text-xs py-2 rounded text-white font-semibold transition">
+                <i class="fa-solid fa-download mr-1"></i> Descargar QR
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>
