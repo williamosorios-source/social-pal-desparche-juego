@@ -2,64 +2,252 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reto #3 - Luces Láser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Reto #3 - Luces Láser | Social Pa'l Desparche 💃🕺</title>
+
+  <!-- FUENTE OFICIAL -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- TAILWIND CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
   <style>
-    body { background-color: #0f172a; color: #f8fafc; font-family: 'Segoe UI', sans-serif; }
-    .gold-gradient { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
-    .card-dark { background-color: #1e293b; border: 1px solid #334155; }
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      height: 100%;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f8fafc;
+      background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+      background-size: 24px 24px;
+      -webkit-tap-highlight-color: transparent;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-white {
+      background: #ffffff;
+      border: 1px solid #f1f5f9;
+      box-shadow: 0 10px 30px -5px rgba(76, 29, 149, 0.08);
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .brand-gradient-btn {
+      background: linear-gradient(135deg, #4c1d95 0%, #7e22ce 50%, #e11d48 100%);
+      transition: all 0.25s ease;
+    }
+    .brand-gradient-btn:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px -5px rgba(126, 34, 206, 0.4);
+    }
+
+    .option-label {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      border-radius: 1rem;
+      background-color: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      color: #3b0764;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .option-label:hover {
+      border-color: #7e22ce;
+      background-color: #faf5ff;
+    }
+    input[type="radio"]:checked + span {
+      color: #7e22ce;
+      font-weight: 800;
+    }
+    .option-label:has(input[type="radio"]:checked) {
+      border-color: #7e22ce;
+      background-color: #f3e8ff;
+      box-shadow: 0 0 0 3px rgba(126, 34, 206, 0.1);
+    }
   </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
-  <div class="card-dark rounded-2xl max-w-lg w-full p-6 shadow-2xl text-center">
-    <header class="mb-6">
-      <span class="bg-amber-500/20 text-amber-400 font-bold px-4 py-1.5 rounded-full text-xs uppercase">Estación #3</span>
-      <h1 class="text-2xl font-extrabold text-amber-400 mt-3">Trivia de Luces Láser</h1>
-      <p class="text-xs text-slate-400 mt-1">Social Pa'l Desparche 🎷</p>
+<body class="text-slate-800 p-4 antialiased selection:bg-purple-500 selection:text-white">
+
+  <div class="card-white rounded-3xl max-w-md w-full p-6 shadow-xl border border-purple-100 my-auto">
+    
+    <!-- CABECERA DE MARCA -->
+    <header class="text-center mb-6 border-b border-purple-100 pb-4">
+      <span class="bg-purple-100 text-purple-900 font-extrabold px-3.5 py-1.5 rounded-full text-[10px] uppercase tracking-widest inline-block mb-2">
+        ESTACIÓN #3 • LUCES LÁSER
+      </span>
+      <h1 class="text-xl font-black text-purple-950 mt-1">Trivia Musical Navideña 🎶</h1>
+      <p class="text-[11px] text-slate-500 font-semibold mt-0.5">El Misterio de la Partitura Navideña • Social Pa'l Desparche</p>
     </header>
-    <main class="space-y-4 text-left text-sm text-slate-300">
-      <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700/50">
-        <p class="font-semibold text-white mb-2"><i class="fa-solid fa-location-dot text-amber-500 mr-2"></i>Ubicación:</p>
-        <p class="text-slate-400 text-xs italic">Esta partitura la encontrarás donde la luz se vuelve un rayo rojo y verde sobre la pista...</p>
+    
+    <main class="space-y-4 text-left text-xs text-slate-700">
+      <!-- UBICACIÓN -->
+      <div class="bg-purple-50/50 p-4 rounded-2xl border border-purple-100 space-y-1">
+        <p class="font-extrabold text-purple-950 text-[11px] uppercase tracking-wider flex items-center gap-1.5">
+          <span>📍</span> Ubicación del Fragmento:
+        </p>
+        <p class="text-slate-600 italic leading-relaxed">
+          "Esta partitura la encontrarás donde la luz se vuelve un rayo rojo y verde sobre la pista..."
+        </p>
       </div>
-      <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700/50 space-y-3 text-xs">
-        <p class="font-semibold text-white"><i class="fa-solid fa-music text-amber-500 mr-2"></i>Responde la Trivia:</p>
-        <div>
-          <p class="text-amber-400">1. Éxito de Aventura que los catapultó a la fama mundial:</p>
-          <p class="text-slate-400">(A) Propuesta Indecente | (B) Obsesión | (C) Dile al Amor</p>
-        </div>
-        <div>
-          <p class="text-amber-400">2. Agrupación colombiana que inmortalizó 'Una Aventura' y 'La Rebelión':</p>
-          <p class="text-slate-400">(A) Galé | (B) Guayacán | (C) Grupo Niche | (D) Fruko</p>
-        </div>
-      </div>
-      <form onsubmit="validar(event)" class="mt-6 space-y-3">
-        <div>
-          <label class="block text-xs font-medium text-slate-400 mb-1">Ingresa las letras separadas por coma (ej: B,C):</label>
-          <input type="text" id="respuesta" placeholder="B,C" required class="w-full bg-slate-900 border border-slate-700 text-white font-mono text-center text-lg rounded-xl py-3 focus:outline-none focus:border-amber-500">
-        </div>
-        <button type="submit" class="w-full gold-gradient hover:opacity-90 text-slate-950 font-bold py-3 rounded-xl transition">Validar Partitura</button>
+
+      <form onsubmit="validar(event)" class="space-y-5 mt-4">
+        <!-- CONTENEDOR DINÁMICO DE LAS 2 PREGUNTAS -->
+        <div id="contenedor-preguntas" class="space-y-4"></div>
+
+        <button type="submit" class="w-full brand-gradient-btn text-white font-extrabold py-4 rounded-2xl text-sm transition active:scale-95 shadow-lg shadow-purple-500/25">
+          Validar Respuestas 🧩
+        </button>
       </form>
-      <div id="resultado" class="hidden text-center p-4 rounded-xl font-bold text-sm"></div>
+
+      <!-- SECCIÓN DE RESULTADO -->
+      <div id="resultado" class="hidden text-center p-4 rounded-2xl font-bold text-xs mt-4"></div>
     </main>
   </div>
+
   <script>
-    const SOL = "B,C";
+    // Banco completo de 6 preguntas
+    const bancoPreguntas = [
+      {
+        id: 1,
+        pregunta: "¿Cuál fue el éxito de Aventura que los catapultó a la fama mundial?",
+        opciones: [
+          { letra: "A", texto: "Propuesta Indecente" },
+          { letra: "B", texto: "Obsesión" },
+          { letra: "C", texto: "Dile al Amor" },
+          { letra: "D", texto: "El Perdedor" }
+        ],
+        correcta: "B"
+      },
+      {
+        id: 2,
+        pregunta: "Agrupación colombiana que inmortalizó 'Una Aventura' y 'La Rebelión':",
+        opciones: [
+          { letra: "A", texto: "Grupo Galé" },
+          { letra: "B", texto: "Guayacán Orquesta" },
+          { letra: "C", texto: "Grupo Niche" },
+          { letra: "D", texto: "Fruko y sus Tesos" }
+        ],
+        correcta: "C"
+      },
+      {
+        id: 3,
+        pregunta: "¿Conocido mundialmente como el 'Poeta de la Salsa', autor de 'Pedro Navaja'?",
+        opciones: [
+          { letra: "A", texto: "Héctor Lavoe" },
+          { letra: "B", texto: "Rubén Blades" },
+          { letra: "C", texto: "Cheo Feliciano" },
+          { letra: "D", texto: "Ismael Rivera" }
+        ],
+        correcta: "B"
+      },
+      {
+        id: 4,
+        pregunta: "¿En qué país caribeño nació el ritmo musical de la Bachata?",
+        opciones: [
+          { letra: "A", texto: "Puerto Rico" },
+          { letra: "B", texto: "Cuba" },
+          { letra: "C", texto: "República Dominicana" },
+          { letra: "D", texto: "Colombia" }
+        ],
+        correcta: "C"
+      },
+      {
+        id: 5,
+        pregunta: "¿En qué tiempo musical se realiza el acento o 'tap' con la cadera en el paso básico de bachata?",
+        opciones: [
+          { letra: "A", texto: "En el tiempo 1" },
+          { letra: "B", texto: "En el tiempo 2" },
+          { letra: "C", texto: "En el tiempo 3" },
+          { letra: "D", texto: "En el tiempo 4" }
+        ],
+        correcta: "D"
+      },
+      {
+        id: 6,
+        pregunta: "¿Quién es considerado el 'Rey de la Bachata' y ex-vocalista de Aventura?",
+        opciones: [
+          { letra: "A", texto: "Prince Royce" },
+          { letra: "B", texto: "Romeo Santos" },
+          { letra: "C", texto: "Juan Luis Guerra" },
+          { letra: "D", texto: "Frank Reyes" }
+        ],
+        correcta: "B"
+      }
+    ];
+
+    let preguntasSeleccionadas = [];
+
+    // Cargar 2 preguntas aleatorias al entrar
+    function cargarPreguntasAleatorias() {
+      const shuffled = [...bancoPreguntas].sort(() => 0.5 - Math.random());
+      preguntasSeleccionadas = shuffled.slice(0, 2);
+
+      const contenedor = document.getElementById('contenedor-preguntas');
+      contenedor.innerHTML = '';
+
+      preguntasSeleccionadas.forEach((q, idx) => {
+        let opcionesHTML = q.opciones.map(opt => `
+          <label class="option-label">
+            <input type="radio" name="p_${q.id}" value="${opt.letra}" required class="accent-purple-700 mr-2.5 w-4 h-4">
+            <span>(${opt.letra}) ${opt.texto}</span>
+          </label>
+        `).join('');
+
+        contenedor.innerHTML += `
+          <div class="bg-slate-50 p-4 rounded-2xl border border-purple-100 space-y-3">
+            <p class="font-extrabold text-purple-950 text-xs">
+              ${idx + 1}. ${q.pregunta}
+            </p>
+            <div class="space-y-2">
+              ${opcionesHTML}
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // Validar respuestas
     function validar(e) {
       e.preventDefault();
-      const input = document.getElementById('respuesta').value.trim().toUpperCase();
+      let todasCorrectas = true;
+
+      preguntasSeleccionadas.forEach(q => {
+        const marcada = document.querySelector(`input[name="p_${q.id}"]:checked`)?.value;
+        if (marcada !== q.correcta) {
+          todasCorrectas = false;
+        }
+      });
+
       const resDiv = document.getElementById('resultado');
       resDiv.classList.remove('hidden');
-      if (input === SOL) {
-        resDiv.className = "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-center p-4 rounded-xl font-bold text-sm";
-        resDiv.innerHTML = `🎉 ¡Partitura Liberada!<br><span class="text-xs font-normal">Respuestas correctas. Reto #3 completado.</span>`;
+
+      if (todasCorrectas) {
+        resDiv.className = "bg-emerald-50 text-emerald-950 border-2 border-emerald-400 p-4 rounded-2xl font-bold text-xs space-y-2 shadow-md";
+        resDiv.innerHTML = `
+          <div class="text-sm font-black text-emerald-800">🎉 ¡RESPUESTAS CORRECTAS! 🎉</div>
+          <p class="text-[11px] text-emerald-700 font-medium">Demostraste que llevas el ritmo en las venas. Tu código para ingresar en la app principal es:</p>
+          <div class="text-2xl font-black text-purple-950 bg-white py-2.5 rounded-xl border border-purple-200 tracking-wider shadow-inner font-mono">SOCIAL26</div>
+        `;
       } else {
-        resDiv.className = "bg-red-500/20 text-red-400 border border-red-500/30 text-center p-4 rounded-xl font-bold text-sm";
-        resDiv.innerHTML = `❌ Respuestas incorrectas<br><span class="text-xs font-normal">Revisa las opciones de la trivia e intenta nuevamente.</span>`;
+        resDiv.className = "bg-rose-50 text-rose-700 border border-rose-200 p-4 rounded-2xl font-bold text-xs";
+        resDiv.innerHTML = `❌ Respuestas incorrectas<br><span class="text-[11px] font-medium text-rose-600">Revisa tus elecciones e inténtalo nuevamente.</span>`;
       }
     }
+
+    window.onload = cargarPreguntasAleatorias;
   </script>
 </body>
 </html>
