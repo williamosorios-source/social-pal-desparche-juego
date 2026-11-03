@@ -2,23 +2,64 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panel de Control - El Misterio de la Partitura Navideña</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Panel de Control - El Misterio de la Partitura Navideña | Social Pa'l Desparche 💃🕺</title>
+
+  <!-- FUENTE OFICIAL -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- TAILWIND CSS & FONT AWESOME -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
   <style>
-    body { background-color: #0f172a; color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    .gold-text { color: #f59e0b; }
-    .card-dark { background-color: #1e293b; border: 1px solid #334155; }
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      height: 100%;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f8fafc;
+      background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+      background-size: 24px 24px;
+      -webkit-tap-highlight-color: transparent;
+      min-height: 100vh;
+      min-height: 100svh;
+    }
+
+    .card-white {
+      background: #ffffff;
+      border: 1px solid #f1f5f9;
+      box-shadow: 0 10px 30px -5px rgba(76, 29, 149, 0.08);
+      box-sizing: border-box;
+    }
+
+    .brand-gradient-btn {
+      background: linear-gradient(135deg, #4c1d95 0%, #7e22ce 50%, #e11d48 100%);
+      transition: all 0.25s ease;
+    }
+    .brand-gradient-btn:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px -5px rgba(126, 34, 206, 0.4);
+    }
   </style>
 </head>
-<body class="p-4 md:p-8">
+<body class="p-4 md:p-8 text-slate-800 antialiased selection:bg-purple-500 selection:text-white">
 
-  <header class="text-center mb-8">
-    <h1 class="text-3xl md:text-4xl font-extrabold gold-text mb-2">🎄 Panel de Control de Retos 🎷</h1>
-    <p class="text-slate-400">El Misterio de la Partitura Navideña • Social Pa'l Desparche</p>
+  <!-- CABECERA -->
+  <header class="text-center mb-8 max-w-4xl mx-auto">
+    <span class="bg-purple-100 text-purple-900 font-extrabold px-4 py-1.5 rounded-full text-xs uppercase tracking-widest inline-block mb-3">
+      ADMINISTRACIÓN DE ESTACIONES
+    </span>
+    <h1 class="text-3xl md:text-4xl font-black text-purple-950 mb-2">🎄 Panel de Control de Retos 🎷</h1>
+    <p class="text-xs md:text-sm font-semibold text-slate-500">El Misterio de la Partitura Navideña • Social Pa'l Desparche</p>
   </header>
 
+  <!-- CONTENEDOR DE RETOS -->
   <div id="retos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
     <!-- Se genera dinámicamente con JS -->
   </div>
@@ -42,26 +83,32 @@
 
     retos.forEach(r => {
       const pageUrl = `${baseUrl}/reto${r.id}.html`;
-      const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(pageUrl)}`;
+      // API estable de QuickChart para evitar fallos de carga en los códigos QR
+      const qrUrl = `https://quickchart.io/qr?text=${encodeURIComponent(pageUrl)}&size=200&margin=1`;
 
       grid.innerHTML += `
-        <div class="card-dark rounded-xl p-5 shadow-lg flex flex-col justify-between">
+        <div class="card-white rounded-3xl p-6 shadow-xl border border-purple-100 flex flex-col justify-between">
           <div>
             <div class="flex justify-between items-center mb-3">
-              <span class="bg-amber-500/20 text-amber-400 font-bold px-3 py-1 rounded-full text-sm">Reto #${r.id}</span>
-              <span class="text-xs text-slate-400 font-mono">${r.tipo}</span>
+              <span class="bg-purple-100 text-purple-900 font-extrabold px-3 py-1 rounded-full text-xs uppercase tracking-wider">
+                Reto #${r.id}
+              </span>
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2.5 py-1 rounded-lg font-bold font-mono">
+                ${r.tipo}
+              </span>
             </div>
-            <h3 class="text-lg font-bold text-white mb-2">${r.nombre}</h3>
-            <p class="text-xs text-slate-400 break-all mb-4 bg-slate-900 p-2 rounded">${pageUrl}</p>
+            <h3 class="text-base font-extrabold text-purple-950 mb-2">${r.nombre}</h3>
+            <p class="text-[11px] font-mono text-slate-500 break-all mb-4 bg-slate-50 p-2.5 rounded-xl border border-slate-200">${pageUrl}</p>
           </div>
           
           <div class="flex flex-col items-center gap-3 mt-2">
-            <img src="${qrUrl}" alt="QR Reto ${r.id}" class="w-32 h-32 rounded border-2 border-amber-500/30 p-1 bg-white">
+            <img src="${qrUrl}" alt="QR Reto ${r.id}" class="w-36 h-36 rounded-2xl border-2 border-purple-200 p-2 bg-white shadow-sm object-contain">
+            
             <div class="flex gap-2 w-full mt-2">
-              <a href="reto${r.id}.html" target="_blank" class="flex-1 text-center bg-slate-700 hover:bg-slate-600 text-xs py-2 rounded text-white font-semibold transition">
+              <a href="reto${r.id}.html" target="_blank" class="flex-1 text-center bg-slate-100 hover:bg-purple-50 text-purple-950 text-xs py-2.5 rounded-xl font-extrabold transition border border-purple-100">
                 <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> Abrir
               </a>
-              <a href="${qrUrl}" download="QR_Reto_${r.id}.png" target="_blank" class="flex-1 text-center bg-amber-600 hover:bg-amber-500 text-xs py-2 rounded text-white font-semibold transition">
+              <a href="${qrUrl}" download="QR_Reto_${r.id}.png" target="_blank" class="flex-1 text-center brand-gradient-btn text-white text-xs py-2.5 rounded-xl font-extrabold transition shadow-md">
                 <i class="fa-solid fa-download mr-1"></i> Descargar QR
               </a>
             </div>
