@@ -97,4 +97,44 @@
         <div>
           <label class="block text-[11px] font-extrabold text-purple-950 mb-1.5 uppercase tracking-wider">
             Frase Cifrada (dos palabras):
-          </label
+          </label>
+          <input type="text" id="respuesta" placeholder="Escribe la frase completa" required 
+            class="w-full px-4 py-3.5 input-light font-mono text-center text-lg uppercase font-bold outline-none transition shadow-sm">
+        </div>
+
+        <button type="submit" class="w-full brand-gradient-btn text-white font-extrabold py-4 rounded-2xl text-sm transition active:scale-95 shadow-lg shadow-purple-500/25">
+          Validar Partitura 🧩
+        </button>
+      </form>
+
+      <!-- SECCIÓN DE RESULTADO -->
+      <div id="resultado" class="hidden text-center p-4 rounded-2xl font-bold text-xs mt-4"></div>
+    </main>
+  </div>
+
+  <script>
+    const SOL = "INOLVIDABLE NOCHE";
+    const CODIGO_GANADOR = "BAILE001";
+
+    function validar(e) {
+      e.preventDefault();
+      const input = document.getElementById('respuesta').value.trim().toUpperCase();
+      const resDiv = document.getElementById('resultado');
+      
+      resDiv.classList.remove('hidden');
+
+      if (input === SOL) {
+        resDiv.className = "bg-emerald-50 text-emerald-950 border-2 border-emerald-400 p-4 rounded-2xl font-bold text-xs space-y-2 shadow-md";
+        resDiv.innerHTML = `
+          <div class="text-sm font-black text-emerald-800">🎉 ¡PARTITURA LIBERADA! 🎉</div>
+          <p class="text-[11px] text-emerald-700 font-medium">Has descifrado correctamente el alfabeto secreto. Tu código para ingresar en la app principal es:</p>
+          <div class="text-2xl font-black text-purple-950 bg-white py-2.5 rounded-xl border border-purple-200 tracking-wider shadow-inner font-mono">${CODIGO_GANADOR}</div>
+        `;
+      } else {
+        resDiv.className = "bg-rose-50 text-rose-700 border border-rose-200 p-4 rounded-2xl font-bold text-xs";
+        resDiv.innerHTML = `❌ Frase incorrecta<br><span class="text-[11px] font-medium text-rose-600">Revisa el mapa del alfabeto secreto en la gráfica del área e intenta de nuevo.</span>`;
+      }
+    }
+  </script>
+</body>
+</html>
