@@ -84,7 +84,7 @@
     <!-- CABECERA DE MARCA -->
     <header class="text-center mb-6 border-b border-purple-100 pb-4">
       <span class="bg-purple-100 text-purple-900 font-extrabold px-3.5 py-1.5 rounded-full text-[10px] uppercase tracking-widest inline-block mb-2">
-        ESTACIÓN #1 • INICIO DE MISIÓN
+        INICIO DE MISIÓN
       </span>
       <h1 class="text-xl font-black text-purple-950 mt-1">TU MISIÓN DE NAVIDAD INICIA AQUÍ 🎄🕵️‍♀️</h1>
       <p class="text-[11px] text-slate-500 font-semibold mt-0.5">El Misterio de la Partitura Navideña • Social Pa'l Desparche</p>
@@ -99,10 +99,10 @@
             <i class="fa-solid fa-user-check text-purple-700"></i> Verificación de Tripulación:
           </p>
           <p class="text-slate-600 leading-relaxed font-medium">
-            Para acceder a las coordenadas del evento, demuestra que eres parte de la tripulación responder la siguiente pregunta:
+            Para acceder a las coordenadas del evento, demuestra que eres parte de la tripulación respondiendo la siguiente pregunta:
           </p>
           <p class="font-bold text-purple-950 text-xs pt-1">
-            ¿Cómo se llama la profesora invitada que nos acompañara en nuestro evento?
+            ¿Cómo se llama la profesora invitada que nos acompañará en nuestro evento?
           </p>
         </div>
 
@@ -121,7 +121,7 @@
         </form>
 
         <div id="error-msg" class="hidden text-center p-4 rounded-2xl font-bold text-xs mt-4 bg-rose-50 text-rose-700 border border-rose-200">
-          ❌ Acceso denegado.<br><span class="text-[11px] font-medium text-rose-600">Revisa el cartel y vuelve a intentarlo.</span>
+          ❌ Acceso denegado.<br><span class="text-[11px] font-medium text-rose-600">Revisa la información y vuelve a intentarlo.</span>
         </div>
       </div>
 
@@ -155,11 +155,6 @@
               ¿Aceptas el reto? Nos vemos en la pista.
             </div>
           </div>
-
-          <div class="pt-2">
-            <span class="text-[10px] text-emerald-700 font-bold block mb-1">CÓDIGO OFICIAL DE ESTACIÓN #1:</span>
-            <div class="text-2xl font-black text-purple-950 bg-white py-2.5 rounded-xl border border-purple-200 tracking-wider shadow-inner font-mono">STAFF2026</div>
-          </div>
         </div>
       </div>
 
@@ -167,8 +162,6 @@
   </div>
 
   <script>
-    const CODIGO_GANADOR = "STAFF2026";
-
     // Función para normalizar texto (quitar tildes y caracteres especiales)
     function normalizar(texto) {
       return texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
