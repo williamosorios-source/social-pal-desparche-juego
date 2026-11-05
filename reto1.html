@@ -66,6 +66,15 @@
       background: #ffffff;
       box-shadow: 0 0 0 4px rgba(126, 34, 206, 0.1);
     }
+
+    @keyframes pulseProgress {
+      0% { width: 0%; }
+      50% { width: 70%; }
+      100% { width: 100%; }
+    }
+    .animate-progress {
+      animation: pulseProgress 1.8s ease-in-out forwards;
+    }
   </style>
 </head>
 <body class="text-slate-800 p-4 antialiased selection:bg-purple-500 selection:text-white">
@@ -75,63 +84,120 @@
     <!-- CABECERA DE MARCA -->
     <header class="text-center mb-6 border-b border-purple-100 pb-4">
       <span class="bg-purple-100 text-purple-900 font-extrabold px-3.5 py-1.5 rounded-full text-[10px] uppercase tracking-widest inline-block mb-2">
-        ESTACIÓN #1 • STAFF
+        ESTACIÓN #1 • INICIO DE MISIÓN
       </span>
-      <h1 class="text-xl font-black text-purple-950 mt-1">El Anfitrión de la Fiesta 🎷</h1>
+      <h1 class="text-xl font-black text-purple-950 mt-1">TU MISIÓN DE NAVIDAD INICIA AQUÍ 🎄🕵️‍♀️</h1>
       <p class="text-[11px] text-slate-500 font-semibold mt-0.5">El Misterio de la Partitura Navideña • Social Pa'l Desparche</p>
     </header>
     
     <main class="space-y-4 text-left text-xs text-slate-700">
-      <!-- MISIÓN -->
-      <div class="bg-slate-50 p-4 rounded-2xl border border-purple-100 space-y-1">
-        <p class="font-extrabold text-purple-950 text-[11px] uppercase tracking-wider flex items-center gap-1.5">
-          <i class="fa-solid fa-user-check text-purple-700"></i> Misión:
-        </p>
-        <p class="text-slate-600 leading-relaxed font-medium">
-          Busca al Anfitrión de la fiesta. Realiza la dinámica de bienvenida que te indique para recibir el código maestro de validación.
-        </p>
-      </div>
-
-      <!-- FORMULARIO DE RESPUESTA -->
-      <form onsubmit="validar(event)" class="space-y-4 mt-4">
-        <div>
-          <label class="block text-[11px] font-extrabold text-purple-950 mb-1.5 uppercase tracking-wider">
-            Código entregado por el Anfitrión:
-          </label>
-          <input type="text" id="respuesta" placeholder="Ingresa el código" required 
-            class="w-full px-4 py-3.5 input-light font-mono text-center text-lg uppercase font-bold outline-none transition shadow-sm">
+      
+      <!-- CONTENIDO DEL FORMULARIO (PASO 1) -->
+      <div id="paso-1">
+        <div class="bg-slate-50 p-4 rounded-2xl border border-purple-100 space-y-2 mb-4">
+          <p class="font-extrabold text-purple-950 text-[11px] uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-user-check text-purple-700"></i> Verificación de Tripulación:
+          </p>
+          <p class="text-slate-600 leading-relaxed font-medium">
+            Para acceder a las coordenadas del evento, demuestra que eres parte de la tripulación responder la siguiente pregunta:
+          </p>
+          <p class="font-bold text-purple-950 text-xs pt-1">
+            ¿Cómo se llama la profesora invitada que nos acompaña?
+          </p>
         </div>
 
-        <button type="submit" class="w-full brand-gradient-btn text-white font-extrabold py-4 rounded-2xl text-sm transition active:scale-95 shadow-lg shadow-purple-500/25">
-          Validar Código 🧩
-        </button>
-      </form>
+        <form onsubmit="validar(event)" class="space-y-4">
+          <div>
+            <label class="block text-[11px] font-extrabold text-purple-950 mb-1.5 uppercase tracking-wider">
+              Respuesta:
+            </label>
+            <input type="text" id="respuesta" placeholder="Nombre de la profesora" required 
+              class="w-full px-4 py-3.5 input-light font-medium text-center text-base outline-none transition shadow-sm">
+          </div>
 
-      <!-- SECCIÓN DE RESULTADO -->
-      <div id="resultado" class="hidden text-center p-4 rounded-2xl font-bold text-xs mt-4"></div>
+          <button type="submit" class="w-full brand-gradient-btn text-white font-extrabold py-4 rounded-2xl text-sm transition active:scale-95 shadow-lg shadow-purple-500/25">
+            Validar Acceso 🧩
+          </button>
+        </form>
+
+        <div id="error-msg" class="hidden text-center p-4 rounded-2xl font-bold text-xs mt-4 bg-rose-50 text-rose-700 border border-rose-200">
+          ❌ Acceso denegado.<br><span class="text-[11px] font-medium text-rose-600">Revisa el cartel y vuelve a intentarlo.</span>
+        </div>
+      </div>
+
+      <!-- ANIMACIÓN DE TRANSICIÓN (PASO 2) -->
+      <div id="paso-2" class="hidden text-center py-6 space-y-4">
+        <div class="text-purple-950 font-black text-sm animate-pulse flex items-center justify-center gap-2">
+          <i class="fa-solid fa-rotate spin text-purple-700"></i> 🔄 Descodificando la ubicación...
+        </div>
+        <p class="text-[11px] text-slate-500 font-semibold">Procesando acceso de la tripulación...</p>
+        <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden border border-purple-100">
+          <div class="bg-gradient-to-r from-purple-700 to-rose-500 h-full animate-progress"></div>
+        </div>
+      </div>
+
+      <!-- PANTALLA FINAL (PASO 3) -->
+      <div id="paso-3" class="hidden space-y-4">
+        <div class="bg-emerald-50 text-emerald-950 border-2 border-emerald-400 p-4 rounded-2xl font-bold text-xs space-y-3 shadow-md text-center">
+          <div class="text-base font-black text-emerald-800 flex items-center justify-center gap-2">
+            <span>¡Acceso concedido! 💃🕺</span>
+          </div>
+          
+          <p class="text-[11px] text-slate-700 font-medium leading-relaxed">
+            Has activado el radar. Las coordenadas del evento quedan fijadas en la <b>zona norte</b>, comprendida entre la <b>Biblioteca Julio Mario Santo Domingo</b> y <b>Studio Latin Dance</b>.
+          </p>
+
+          <div class="bg-white p-3 rounded-xl border border-purple-200 space-y-2 text-purple-950">
+            <p class="text-[11px] font-semibold text-slate-600">
+              Próximamente sabrás la dirección exacta. Síguenos en nuestras redes sociales como <b class="text-purple-800">@socialpaldesparche</b> para que seas el primero en enterarte.
+            </p>
+            <div class="text-xs font-black text-purple-900 tracking-wider pt-1 border-t border-purple-100">
+              ¿Aceptas el reto? Nos vemos en la pista.
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <span class="text-[10px] text-emerald-700 font-bold block mb-1">CÓDIGO OFICIAL DE ESTACIÓN #1:</span>
+            <div class="text-2xl font-black text-purple-950 bg-white py-2.5 rounded-xl border border-purple-200 tracking-wider shadow-inner font-mono">STAFF2026</div>
+          </div>
+        </div>
+      </div>
+
     </main>
   </div>
 
   <script>
     const CODIGO_GANADOR = "STAFF2026";
 
+    // Función para normalizar texto (quitar tildes y caracteres especiales)
+    function normalizar(texto) {
+      return texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+    }
+
     function validar(e) {
       e.preventDefault();
-      const input = document.getElementById('respuesta').value.trim();
-      const resDiv = document.getElementById('resultado');
+      const inputRaw = document.getElementById('respuesta').value;
+      const inputClean = normalizar(inputRaw);
+      const errorDiv = document.getElementById('error-msg');
       
-      resDiv.classList.remove('hidden');
+      // Respuestas válidas: "camila herrera", "camila gerrera", "camila"
+      const esValido = inputClean.includes("camila");
 
-      if (input !== "") {
-        resDiv.className = "bg-emerald-50 text-emerald-950 border-2 border-emerald-400 p-4 rounded-2xl font-bold text-xs space-y-2 shadow-md";
-        resDiv.innerHTML = `
-          <div class="text-sm font-black text-emerald-800">🎉 ¡CÓDIGO VALIDADO! 🎉</div>
-          <p class="text-[11px] text-emerald-700 font-medium">Has completado la dinámica con el Anfitrión. Tu código para ingresar en la app principal es:</p>
-          <div class="text-2xl font-black text-purple-950 bg-white py-2.5 rounded-xl border border-purple-200 tracking-wider shadow-inner font-mono">${CODIGO_GANADOR}</div>
-        `;
+      if (esValido) {
+        errorDiv.classList.add('hidden');
+        
+        // Transición a Paso 2 (Animación)
+        document.getElementById('paso-1').classList.add('hidden');
+        document.getElementById('paso-2').classList.remove('hidden');
+
+        // Transición a Paso 3 (Pantalla final tras 1.8 segundos)
+        setTimeout(() => {
+          document.getElementById('paso-2').classList.add('hidden');
+          document.getElementById('paso-3').classList.remove('hidden');
+        }, 1800);
+
       } else {
-        resDiv.className = "bg-rose-50 text-rose-700 border border-rose-200 p-4 rounded-2xl font-bold text-xs";
-        resDiv.innerHTML = `❌ Campo vacío<br><span class="text-[11px] font-medium text-rose-600">Por favor ingresa el código proporcionado por el Anfitrión.</span>`;
+        errorDiv.classList.remove('hidden');
       }
     }
   </script>
