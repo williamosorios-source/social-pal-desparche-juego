@@ -77,7 +77,7 @@
       <span class="bg-purple-100 text-purple-900 font-extrabold px-3.5 py-1.5 rounded-full text-[10px] uppercase tracking-widest inline-block mb-2">
         ESTACIÓN #10 • GRAN FINAL 🏆
       </span>
-      <h1 class="text-xl font-black text-purple-950 mt-1">El Candado del Suelo 🔒</h1>
+      <h1 class="text-xl font-black text-purple-950 mt-1">El Rastro en el Piso 👣</h1>
       <p class="text-[11px] text-slate-500 font-semibold mt-0.5">El Misterio de la Partitura Navideña • Social Pa'l Desparche</p>
     </header>
     
@@ -85,10 +85,10 @@
       <!-- MISIÓN -->
       <div class="bg-slate-50 p-4 rounded-2xl border border-purple-100 space-y-1">
         <p class="font-extrabold text-purple-950 text-[11px] uppercase tracking-wider flex items-center gap-1.5">
-          <i class="fa-solid fa-lock text-purple-700"></i> Misión Final (6 Dígitos):
+          <i class="fa-solid fa-shoe-prints text-purple-700"></i> Misión Final:
         </p>
         <p class="text-slate-600 leading-relaxed font-medium">
-          ¡El Grinch cerró la partitura final con un candado de 6 dígitos! Encuentra los primeros 3 dígitos en la <b>Columna 1</b> y los últimos 3 en la <b>Columna 2</b>. Resuelve las preguntas e ingresa el código en orden.
+          Debes validar el código secreto que se encuentra en los pasos camino hacia esta pista. Obsérvalo en el piso e ingrésalo aquí.
         </p>
       </div>
 
@@ -96,10 +96,10 @@
       <form onsubmit="validar(event)" class="space-y-4 mt-4">
         <div>
           <label class="block text-[11px] font-extrabold text-purple-950 mb-1.5 uppercase tracking-wider">
-            Combinación Final de 6 Dígitos:
+            Código de los Pasos:
           </label>
-          <input type="text" id="respuesta" placeholder="Ej. 123456" required 
-            class="w-full px-4 py-3.5 input-light font-mono text-center text-lg font-bold outline-none transition shadow-sm">
+          <input type="text" id="respuesta" placeholder="Ingresa el código del piso" required 
+            class="w-full px-4 py-3.5 input-light font-mono text-center text-lg uppercase font-bold outline-none transition shadow-sm">
         </div>
 
         <button type="submit" class="w-full brand-gradient-btn text-white font-extrabold py-4 rounded-2xl text-sm transition active:scale-95 shadow-lg shadow-purple-500/25">
@@ -113,12 +113,12 @@
   </div>
 
   <script>
-    const SOL = "283192";
+    const SOL = "123567";
     const CODIGO_GANADOR = "NAVI2026";
 
     function validar(e) {
       e.preventDefault();
-      const input = document.getElementById('respuesta').value.trim();
+      const input = document.getElementById('respuesta').value.trim().toUpperCase();
       const resDiv = document.getElementById('resultado');
       
       resDiv.classList.remove('hidden');
@@ -132,7 +132,7 @@
         `;
       } else {
         resDiv.className = "bg-rose-50 text-rose-700 border border-rose-200 p-4 rounded-2xl font-bold text-xs";
-        resDiv.innerHTML = `❌ Combinación incorrecta<br><span class="text-[11px] font-medium text-rose-600">Verifica las 3 preguntas de la Columna 1 y las 3 de la Columna 2.</span>`;
+        resDiv.innerHTML = `❌ Código incorrecto<br><span class="text-[11px] font-medium text-rose-600">Revisa los pasos en el piso camino hacia esta pista e intenta de nuevo.</span>`;
       }
     }
   </script>
