@@ -73,7 +73,7 @@
   <div class="card-white rounded-3xl max-w-md w-full p-6 shadow-xl border border-purple-100 my-auto">
     
     <!-- CABECERA DE MARCA -->
-    <header class="text-center mb-6 border-b border-purple-100 pb-4">
+    <header class="text-center mb-5 border-b border-purple-100 pb-4">
       <span class="bg-purple-100 text-purple-900 font-extrabold px-3.5 py-1.5 rounded-full text-[10px] uppercase tracking-widest inline-block mb-2">
         ESTACIÓN #7 • ZONA DE DESCANSO
       </span>
@@ -88,8 +88,13 @@
           <i class="fa-solid fa-key text-purple-700"></i> Misión:
         </p>
         <p class="text-slate-600 leading-relaxed font-medium">
-          Descifra la frase oculta de dos palabras usando la hoja con el alfabeto secreto ubicado en esta estación e ingrésala aquí.
+          Descifra la frase oculta de dos palabras usando la hoja con el alfabeto secreto de la imagen e ingrésala aquí.
         </p>
+      </div>
+
+      <!-- IMAGEN DEL RETO DESDE LA RAÍZ -->
+      <div class="rounded-2xl overflow-hidden border border-purple-100 bg-white shadow-sm">
+        <img src="RETO 7.png" alt="Alfabeto secreto Reto 7" class="w-full h-auto object-contain block">
       </div>
 
       <!-- FORMULARIO DE RESPUESTA -->
@@ -132,7 +137,7 @@
         `;
       } else {
         resDiv.className = "bg-rose-50 text-rose-700 border border-rose-200 p-4 rounded-2xl font-bold text-xs";
-        resDiv.innerHTML = `❌ Frase incorrecta<br><span class="text-[11px] font-medium text-rose-600">Revisa el mapa del alfabeto secreto en la gráfica del área e intenta de nuevo.</span>`;
+        resDiv.innerHTML = `❌ Frase incorrecta<br><span class="text-[11px] font-medium text-rose-600">Revisa el mapa del alfabeto secreto en la imagen e intenta de nuevo.</span>`;
       }
     }
   </script>
