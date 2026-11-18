@@ -1,27 +1,88 @@
-<main class="space-y-4 text-left text-xs text-slate-700">
-  <div class="bg-emerald-50 text-emerald-950 border-2 border-emerald-400 p-4 rounded-2xl font-bold text-xs space-y-3 shadow-md text-center">
-    <h2 class="text-base font-black text-emerald-800">
-      ¿Dónde será Social de Navidad? 📍
-    </h2>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Reto #1 - El Anfitrión | Social Pa'l Desparche 💃🕺</title>
 
-    <p class="text-[11px] text-slate-700 font-medium leading-relaxed">
-      El evento será en la <b>zona norte</b>, entre la
-      <b>Biblioteca Julio Mario Santo Domingo</b> y <b>Studio Latin Dance</b>.
-    </p>
+  <!-- FUENTE OFICIAL -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-    <div class="bg-white p-3 rounded-xl border border-purple-200 space-y-2 text-purple-950">
-      <p class="text-[11px] font-semibold text-slate-600">
-        Próximamente compartiremos la dirección exacta. Síguenos en Instagram como
-        <a href="https://www.instagram.com/socialpaldesparche/"
-           class="font-extrabold text-purple-800 underline">
-          @socialpaldesparche
-        </a>
-        para enterarte.
-      </p>
+  <!-- TAILWIND CSS & FONT AWESOME -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-      <p class="text-xs font-black text-purple-900 tracking-wider pt-1 border-t border-purple-100">
-        ¿Aceptas el reto? Nos vemos en la pista.
-      </p>
-    </div>
+  <style>
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f8fafc;
+      background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+      background-size: 24px 24px;
+      -webkit-tap-highlight-color: transparent;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-white {
+      background: #ffffff;
+      border: 1px solid #f1f5f9;
+      box-shadow: 0 10px 30px -5px rgba(76, 29, 149, 0.08);
+      box-sizing: border-box;
+      width: 100%;
+    }
+  </style>
+</head>
+<body class="text-slate-800 p-4 antialiased selection:bg-purple-500 selection:text-white">
+
+  <div class="card-white rounded-3xl max-w-md w-full p-6 shadow-xl border border-purple-100 my-auto">
+
+    <!-- CABECERA DE MARCA -->
+    <header class="text-center mb-6 border-b border-purple-100 pb-4">
+      <span class="bg-purple-100 text-purple-900 font-extrabold px-3.5 py-1.5 rounded-full text-[10px] uppercase tracking-widest inline-block mb-2">
+        INICIO DE MISIÓN
+      </span>
+      <h1 class="text-xl font-black text-purple-950 mt-1">TU MISIÓN DE NAVIDAD INICIA AQUÍ 🎄🕵️‍♀️</h1>
+      <p class="text-[11px] text-slate-500 font-semibold mt-0.5">El Misterio de la Partitura Navideña • Social Pa'l Desparche</p>
+    </header>
+
+    <main class="space-y-4 text-left text-xs text-slate-700">
+
+      <!-- INFORMACIÓN DE LA UBICACIÓN -->
+      <div id="paso-3" class="space-y-4">
+        <div class="bg-emerald-50 text-emerald-950 border-2 border-emerald-400 p-4 rounded-2xl font-bold text-xs space-y-3 shadow-md text-center">
+          <div class="text-base font-black text-emerald-800 flex items-center justify-center gap-2">
+            <span>¡Acceso concedido! 💃🕺</span>
+          </div>
+
+          <p class="text-[11px] text-slate-700 font-medium leading-relaxed">
+            Has activado el radar. Las coordenadas del evento quedan fijadas en la <b>zona norte</b>, comprendida entre la <b>Biblioteca Julio Mario Santo Domingo</b> y <b>Studio Latin Dance</b>.
+          </p>
+
+          <div class="bg-white p-3 rounded-xl border border-purple-200 space-y-2 text-purple-950">
+            <p class="text-[11px] font-semibold text-slate-600">
+              Próximamente sabrás la dirección exacta. Síguenos en nuestras redes sociales como <b class="text-purple-800">@socialpaldesparche</b> para que seas el primero en enterarte.
+            </p>
+            <div class="text-xs font-black text-purple-900 tracking-wider pt-1 border-t border-purple-100">
+              ¿Aceptas el reto? Nos vemos en la pista.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
   </div>
-</main>
+
+</body>
+</html>
