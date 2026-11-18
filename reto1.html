@@ -42,6 +42,20 @@
       box-sizing: border-box;
       width: 100%;
     }
+
+    @keyframes pulseProgress {
+      0% { width: 0%; }
+      50% { width: 70%; }
+      100% { width: 100%; }
+    }
+
+    .animate-progress {
+      animation: pulseProgress 4s ease-in-out forwards;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
   </style>
 </head>
 <body class="text-slate-800 p-4 antialiased selection:bg-purple-500 selection:text-white">
@@ -59,8 +73,19 @@
 
     <main class="space-y-4 text-left text-xs text-slate-700">
 
+      <!-- ANIMACIÓN DE CARGA -->
+      <div id="paso-2" class="text-center py-6 space-y-4" role="status">
+        <div class="text-purple-950 font-black text-sm animate-pulse flex items-center justify-center gap-2">
+          <i class="fa-solid fa-rotate fa-spin text-purple-700" aria-hidden="true"></i> 🔄 Descodificando la ubicación...
+        </div>
+        <p class="text-[11px] text-slate-500 font-semibold">Procesando acceso de la tripulación...</p>
+        <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden border border-purple-100" aria-hidden="true">
+          <div class="bg-gradient-to-r from-purple-700 to-rose-500 h-full animate-progress"></div>
+        </div>
+      </div>
+
       <!-- INFORMACIÓN DE LA UBICACIÓN -->
-      <div id="paso-3" class="space-y-4">
+      <div id="paso-3" class="space-y-4" hidden>
         <div class="bg-emerald-50 text-emerald-950 border-2 border-emerald-400 p-4 rounded-2xl font-bold text-xs space-y-3 shadow-md text-center">
           <div class="text-base font-black text-emerald-800 flex items-center justify-center gap-2">
             <span>¡Acceso concedido! 💃🕺</span>
@@ -83,6 +108,13 @@
 
     </main>
   </div>
+
+  <script>
+    window.setTimeout(() => {
+      document.getElementById('paso-2').hidden = true;
+      document.getElementById('paso-3').hidden = false;
+    }, 4000);
+  </script>
 
 </body>
 </html>
